@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Road Trip - Wold Johansen Travel Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.6;
+            background: white;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .header-left {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header-left .agency {
+            color: #333;
+        }
+
+        .header-left .travel {
+            color: #c9a961;
+        }
+
+        .header-right {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .trip-title-page {
+            text-align: right;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        /* Cover Page */
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .trip-type {
+            text-align: center;
+            color: #c9a961;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 60px 0 20px 0;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin: 20px 0 30px 0;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .trip-dates {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .trip-route {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            background: #f8f8f8;
+            padding: 12px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        tr:hover {
+            background: #fafafa;
+        }
+
+        .day-number {
+            color: #c9a961;
+            font-weight: bold;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: #f8f8f8;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .summary-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .stat {
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            color: #c9a961;
+            font-weight: bold;
+        }
+
+        /* Day Details */
+        .day-header {
+            margin: 40px 0 20px 0;
+        }
+
+        .day-number-large {
+            font-size: 64px;
+            color: #c9a961;
+            font-weight: bold;
+            float: left;
+            margin-right: 20px;
+            line-height: 0.8;
+        }
+
+        .day-info {
+            padding-top: 10px;
+        }
+
+        .day-date {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .day-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a1a1a;
+            clear: none;
+        }
+
+        .day-meta {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .meta-item {
+            font-size: 12px;
+        }
+
+        .meta-label {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a961;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .meta-value {
+            color: #666;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .image-grid .main-image {
+            grid-row: span 2;
+            height: 415px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c9a961;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section li {
+            padding: 8px 0 8px 20px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .content-section li:before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: #c9a961;
+            font-size: 16px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a961;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Footer */
+        .page-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Crafting Unforgettable Journeys
+        </div>
+    </div>
+
+    <img class="hero-image" src="images/intro_image.jpg" alt="European Road Trip">
+
+    <div class="trip-type">European Road Trip</div>
+
+    <h1 class="main-title">Belgium, France, Italy<br>& Switzerland</h1>
+
+    <div class="trip-dates">April 2 - April 11, 2026</div>
+
+    <div class="trip-route">
+        Brussels &rarr; Ch&acirc;teau de Longecourt &rarr; Dijon &rarr; Lyon &rarr; Northern Italy<br>
+        &rarr; Bologna &rarr; Swiss Border &rarr; Switzerland &rarr; Brussels
+    </div>
+</div>
+
+<!-- PAGE 2: PREPARED FOR -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 100px 0;">
+        <p style="font-size: 16px; color: #888; margin-bottom: 10px;">Prepared exclusively for</p>
+        <h2 style="font-size: 36px; color: #1a1a1a;">the Wold Johansen Family</h2>
+    </div>
+</div>
+
+<!-- PAGE 3: JOURNEY AT A GLANCE -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <h2 class="page-title">Your Journey at a Glance</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">DAY</th>
+                <th style="width: 80px;">DATE</th>
+                <th>ROUTE</th>
+                <th style="width: 80px;">DRIVE</th>
+                <th style="width: 130px;">OVERNIGHT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="day-number">1</td>
+                <td>Apr 2</td>
+                <td>Brussels &rarr; Ch&acirc;lons-en-Champagne &rarr; Ch&acirc;teau de Longecourt</td>
+                <td>~5 hrs</td>
+                <td>Ch&acirc;teau de Longecourt</td>
+            </tr>
+            <tr>
+                <td class="day-number">2</td>
+                <td>Apr 3</td>
+                <td>Dijon (morning) &rarr; Lyon</td>
+                <td>~2 hrs</td>
+                <td>Lyon</td>
+            </tr>
+            <tr>
+                <td class="day-number">3</td>
+                <td>Apr 4</td>
+                <td>Lyon &rarr; Northern Italy (TBD)</td>
+                <td>~4-5 hrs</td>
+                <td>Northern Italy</td>
+            </tr>
+            <tr>
+                <td class="day-number">4</td>
+                <td>Apr 5</td>
+                <td>Northern Italy &rarr; Bologna</td>
+                <td>~1.5 hrs</td>
+                <td>Bologna</td>
+            </tr>
+            <tr>
+                <td class="day-number">5</td>
+                <td>Apr 6</td>
+                <td>Day trip to Venice (train)</td>
+                <td>&mdash;</td>
+                <td>Bologna</td>
+            </tr>
+            <tr>
+                <td class="day-number">6</td>
+                <td>Apr 7</td>
+                <td>Day trip to Ravenna</td>
+                <td>~1 hr</td>
+                <td>Bologna</td>
+            </tr>
+            <tr>
+                <td class="day-number">7</td>
+                <td>Apr 8</td>
+                <td>Bologna / optional day trip</td>
+                <td>&mdash;</td>
+                <td>Bologna</td>
+            </tr>
+            <tr>
+                <td class="day-number">8</td>
+                <td>Apr 9</td>
+                <td>Bologna &rarr; Swiss border area</td>
+                <td>~3-4 hrs</td>
+                <td>TBD</td>
+            </tr>
+            <tr>
+                <td class="day-number">9</td>
+                <td>Apr 10</td>
+                <td>Switzerland</td>
+                <td>Variable</td>
+                <td>Switzerland</td>
+            </tr>
+            <tr>
+                <td class="day-number">10</td>
+                <td>Apr 11</td>
+                <td>Switzerland &rarr; Brussels</td>
+                <td>~6-7 hrs</td>
+                <td>Brussels</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="summary-box">
+        <h3>Trip Summary</h3>
+        <div class="summary-stats">
+            <div class="stat">
+                <div class="stat-label">Total Duration</div>
+                <div class="stat-value">10 days</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Total Distance</div>
+                <div class="stat-value">~2,800 km</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Countries</div>
+                <div class="stat-value">4</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 3</span>
+    </div>
+</div>
+
+<!-- PAGE 4: DAY 1 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">01</span>
+        <div class="day-info">
+            <div class="day-date">Thursday, April 2</div>
+            <h2 class="day-title">Brussels to Ch&acirc;teau de Longecourt</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~5 hours (with stops)</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Ch&acirc;teau de Longecourt en Plaine</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~500 km</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Lunch Stop: Ch&acirc;lons-en-Champagne</h3>
+        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Location:</strong> ~3 hours from Brussels (via A4), just off A26/A4 motorway</p>
+        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Timing:</strong> Arrive around 12:00-12:30 for lunch</p>
+        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Parking:</strong> Free/easy parking near city center (Rue de Marne or near Notre-Dame-en-Vaux church)</p>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0;"><strong>Restaurant Options:</strong></p>
+        <ul>
+            <li><strong>La Brasserie du Jard</strong> (Recommended for families)<br>
+                10 Boulevard Victor Hugo, 51000 Ch&acirc;lons-en-Champagne<br>
+                Tel: +33 3 26 65 61 83 | Traditional brasserie, relaxed atmosphere<br>
+                Open: Tue-Sat 10:00-23:00, Sun 10:00-15:00</li>
+            <li><strong>Au Carillon Gourmand</strong> (More upscale)<br>
+                15 bis Place Monseigneur Tissier<br>
+                Tel: +33 3 26 64 45 07 | Michelin-recommended, modern French cuisine<br>
+                Open: Tue, Thu-Sat 12:00-13:30 (lunch)</li>
+            <li><strong>Pizzeria/Cr&ecirc;perie in town center</strong> (Kid-friendly, casual)<br>
+                Various options in pedestrian area around Place de la R&eacute;publique</li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0;"><strong>After Lunch:</strong></p>
+        <ul style="margin-bottom: 0;">
+            <li>Let kids stretch legs walking around canals (15-20 min)</li>
+            <li>"Little Venice" atmosphere</li>
+            <li>Back on road for final ~2 hours to Ch&acirc;teau de Longecourt</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Accommodation: Ch&acirc;teau de Longecourt en Plaine</h3>
+        <ul>
+            <li>Dinner at the hotel</li>
+            <li>Explore the ch&acirc;teau grounds</li>
+        </ul>
+    </div>
+
+    <div class="info-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+        <h4>Booking Status</h4>
+        <p>Ch&acirc;teau de Longecourt en Plaine &mdash; <strong>BOOKED</strong></p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 4</span>
+    </div>
+</div>
+
+<!-- PAGE 5: DAY 2 - DIJON -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">02</span>
+        <div class="day-info">
+            <div class="day-date">Friday, April 3</div>
+            <h2 class="day-title">Dijon &amp; Lyon</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~2 hours (Dijon to Lyon)</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Lyon</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~200 km</span>
+        </div>
+    </div>
+
+    <div class="content-section" style="margin-top: 0;">
+        <h3 class="section-title">Morning Stop: Dijon</h3>
+        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Location:</strong> 15 km from Ch&acirc;teau de Longecourt</p>
+        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Timing:</strong> 2-3 hours (9:00-11:30 AM)</p>
+        <p style="font-size: 13px; margin-bottom: 15px;"><strong>Parking:</strong> Darcy parking (underground, central location)</p>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Top 5 Things to See:</p>
+        <ul>
+            <li><strong>Ducal Palace (Palais des Ducs)</strong> - Place de la Lib&eacute;ration, stunning semicircular square<br>
+                Climb Tour Philippe le Bon (316 steps) for panoramic views | FREE entry<br>
+                Apr-Oct 9:00-12:00, 13:45-17:30</li>
+            <li><strong>Owl Trail (Parcours de la Chouette)</strong> - Follow brass owl markers through old town<br>
+                Rub the lucky owl sculpture on Notre-Dame church with left hand!<br>
+                Free map at tourist office or follow markers</li>
+            <li><strong>Notre-Dame de Dijon</strong> - 13th century Gothic church with famous gargoyles</li>
+            <li><strong>Rue des Forges</strong> - Medieval street with half-timbered houses<br>
+                H&ocirc;tel Chambellan at #34 (15th century mansion)</li>
+            <li><strong>Les Halles Market</strong> - Designed by Gustave Eiffel (Tue-Sat mornings only)<br>
+                Try Dijon mustard from Moutarde Maille boutique nearby</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4>Travel Notes</h4>
+        <p>Compact old town - everything walkable in 30 minutes. Kids will enjoy following the owl trail. Grab coffee and croissant at Place de la Lib&eacute;ration before exploring. Leave by 11:30-12:00 to reach Lyon by early afternoon.</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 5</span>
+    </div>
+</div>
+
+<!-- PAGE 6: DAY 2 CONTINUED - LYON -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Accommodation: Lyon</h3>
+        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Hotel:</strong> Novotel Lyon Gerland Mus&eacute;e des Confluences &#11088;&#11088;&#11088;&#11088;</p>
+        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Address:</strong> 70 Avenue Leclerc, 69007 Lyon</p>
+        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Tel:</strong> +33 4 72 71 11 11</p>
+        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Estimated cost:</strong> &euro;110-140/night for family room</p>
+
+        <ul style="margin-top: 15px;">
+            <li>Easy access from highway (A7), practical for stopover</li>
+            <li>Family rooms with sofa bed (kids under 16 free in parents' room)</li>
+            <li>On-site restaurant (La Fabrik) with kids' menu</li>
+            <li>Game room and kids' corner</li>
+            <li>Parking: Free outdoor or &euro;15/night covered</li>
+            <li>Tram T1 nearby for easy city center access (6 min to shopping center)</li>
+            <li>Near Mus&eacute;e des Confluences</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4>Note</h4>
+        <p>Pool is outdoor/seasonal - CLOSED in April. Good location for evening walk along Rh&ocirc;ne River. 10-15 min drive to old town if dining out. Check-in typically from 14:00.</p>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Exploring Lyon - Activities & Highlights</h3>
+        <ul>
+            <li><strong>Vieux Lyon (Old Town)</strong> - UNESCO World Heritage site with Renaissance architecture</li>
+            <li><strong>Traboules</strong> - Explore Lyon's famous hidden passageways</li>
+            <li><strong>Basilica of Notre-Dame de Fourvi&egrave;re</strong> - Hilltop basilica with panoramic city views</li>
+            <li><strong>Parc de la T&ecirc;te d'Or</strong> - Beautiful urban park with lake, zoo, and botanical gardens</li>
+            <li><strong>Lyon Museum of Fine Arts</strong></li>
+            <li><strong>Evening stroll</strong> along the riverbanks - Lyon has beautiful illuminations</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Dining</h3>
+        <p style="font-size: 13px; margin-bottom: 12px;"><em>Lyon is considered the gastronomic capital of France. Consider a bouchon lyonnais (traditional restaurant).</em></p>
+    </div>
+
+    <div class="info-box">
+        <h4>Practical Tips</h4>
+        <p>Lyon parking can be challenging - research parking garages near accommodation. Consider Lyon City Card for transport and museum access. Fourvi&egrave;re funicular makes hilltop access easy.</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 6</span>
+    </div>
+</div>
+
+<!-- PAGE 7: DAY 3 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">03</span>
+        <div class="day-info">
+            <div class="day-date">Saturday, April 4</div>
+            <h2 class="day-title">Lyon to Northern Italy</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~4-5 hours</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">To be decided</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~400-450 km</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Destination Options (Turin / Parma / Piacenza)</h3>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Option 1: Turin</p>
+        <ul>
+            <li><strong>Mole Antonelliana</strong> - Iconic building housing National Cinema Museum</li>
+            <li><strong>Egyptian Museum</strong> - Largest collection outside Cairo</li>
+            <li><strong>Piazza Castello</strong> and Royal Palace</li>
+            <li><strong>Historic caf&eacute;s</strong> - Caff&egrave; Mulassano and Caff&egrave; San Carlo</li>
+            <li><em>Most famous but can be busy</em></li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 20px 0 8px 0; font-weight: bold;">Option 2: Parma</p>
+        <ul>
+            <li><strong>Parma Cathedral and Baptistery</strong> - Stunning Romanesque architecture</li>
+            <li><strong>Parmigiano-Reggiano cheese factory tour</strong></li>
+            <li><strong>Prosciutto di Parma</strong> producer visit</li>
+            <li><strong>Teatro Regio</strong> opera house</li>
+            <li><em>Unique food tourism experiences</em></li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 20px 0 8px 0; font-weight: bold;">Option 3: Piacenza</p>
+        <ul>
+            <li><strong>Piazza Cavalli</strong> with equestrian statues</li>
+            <li><strong>Palazzo Farnese</strong></li>
+            <li><em>Quieter, authentic Italian experience</em></li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4>Route Considerations</h4>
+        <p>Mont Blanc tunnel or Fr&eacute;jus tunnel route options from Lyon. Check tunnel traffic and tolls in advance. Early April can still be cool in mountain areas - pack layers accordingly.</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 7</span>
+    </div>
+</div>
+
+<!-- PAGE 8: DAY 4 - BOLOGNA -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">04</span>
+        <div class="day-info">
+            <div class="day-date">Sunday, April 5</div>
+            <h2 class="day-title">Northern Italy to Bologna</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~1.5 hours</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Bologna (3 nights)</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~150 km</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Exploring Bologna</h3>
+        <ul>
+            <li><strong>Piazza Maggiore</strong> - Historic heart with Basilica di San Petronio</li>
+            <li><strong>Due Torri (Two Towers)</strong> - Climb Torre degli Asinelli (498 steps) for views</li>
+            <li><strong>Archiginnasio</strong> - Historic university building with anatomical theater</li>
+            <li><strong>Porticoes of Bologna</strong> - UNESCO site, 38km of covered walkways</li>
+            <li><strong>Santo Stefano complex</strong> - Medieval 'Seven Churches' complex</li>
+            <li><strong>Quadrilatero market area</strong> - Vibrant food market district</li>
+            <li><strong>Via dell'Indipendenza</strong> - Main shopping street</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Dining in Bologna</h3>
+        <ul>
+            <li><strong>Trattoria Anna Maria</strong> - Authentic traditional Bolognese cuisine</li>
+            <li><strong>Osteria dell'Orsa</strong> - Popular with locals, excellent tagliatelle al rag&ugrave;</li>
+            <li><strong>All'Osteria Bottega</strong> - Wine bar with local dishes</li>
+            <li><strong>Mercato di Mezzo</strong> - Food hall for casual dining</li>
+            <li><strong>Gelato:</strong> Cremeria Funivia or Stefino</li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Must Try:</p>
+        <ul>
+            <li>Tagliatelle al rag&ugrave; (authentic Bolognese sauce)</li>
+            <li>Tortellini in brodo</li>
+            <li>Mortadella</li>
+            <li>Cotoletta alla bolognese</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4>Note</h4>
+        <p>Bologna has excellent train connections for day trips. Consider the Bologna Welcome card. Market visits are best in the morning.</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 8</span>
+    </div>
+</div>
+
+<!-- PAGE 9: DAY 5 - VENICE DAY TRIP -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">05</span>
+        <div class="day-info">
+            <div class="day-date">Monday, April 6</div>
+            <h2 class="day-title">Day Trip to Venice</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Travel</span>
+            <span class="meta-value">Train from Bologna Centrale to Venezia Santa Lucia (~1.5-2 hours)</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Bologna</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Activities in Venice</h3>
+        <ul>
+            <li><strong>St. Mark's Square and Basilica</strong> - The iconic heart of Venice</li>
+            <li><strong>Doge's Palace</strong> - Gothic masterpiece and seat of Venetian power</li>
+            <li><strong>Rialto Bridge</strong> - Historic bridge over the Grand Canal</li>
+            <li><strong>Grand Canal vaporetto ride</strong> - See Venice from the water</li>
+            <li><strong>Explore quieter neighborhoods</strong> - Cannaregio, Dorsoduro</li>
+        </ul>
+    </div>
+
+    <div class="info-box" style="background: #fff3cd; border-left: 4px solid #c9a961;">
+        <h4>Important</h4>
+        <p>Book Venice train tickets in advance for best prices. Trains run frequently from Bologna Centrale. Allow a full day for exploring Venice.</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 9</span>
+    </div>
+</div>
+
+<!-- PAGE 10: DAY 6 - RAVENNA + DAY 7 -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">06</span>
+        <div class="day-info">
+            <div class="day-date">Tuesday, April 7</div>
+            <h2 class="day-title">Day Trip to Ravenna</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Travel</span>
+            <span class="meta-value">~80 km, 1 hour by car or train</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Bologna</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Activities in Ravenna</h3>
+        <p style="font-size: 13px; margin-bottom: 12px;"><em>Famous for its stunning Byzantine mosaics (UNESCO World Heritage sites)</em></p>
+        <ul>
+            <li><strong>Basilica di San Vitale</strong> - 6th-century church with breathtaking mosaics</li>
+            <li><strong>Mausoleum of Galla Placidia</strong> - Starry sky ceiling mosaics</li>
+            <li><strong>Basilica di Sant'Apollinare Nuovo</strong> - Mosaic processions along nave walls</li>
+            <li><strong>Dante's Tomb</strong> - Final resting place of the poet</li>
+            <li><strong>Historic center</strong> - Charming streets and piazzas</li>
+        </ul>
+    </div>
+
+    <div style="border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px;">
+        <div class="day-header" style="overflow: auto; margin-top: 0;">
+            <span class="day-number-large">07</span>
+            <div class="day-info">
+                <div class="day-date">Wednesday, April 8</div>
+                <h2 class="day-title">Bologna &ndash; Flexible Day</h2>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-title">Options</h3>
+            <ul>
+                <li><strong>Additional Bologna exploration</strong> - Revisit favorites or discover new areas</li>
+                <li><strong>Rest day</strong> - Relax and enjoy the hotel</li>
+                <li><strong>Half-day trip to Modena</strong> - Balsamic vinegar, Ferrari Museum</li>
+                <li><strong>Half-day trip to Ferrara</strong> - Renaissance city, UNESCO World Heritage</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 10</span>
+    </div>
+</div>
+
+<!-- PAGE 11: DAY 8 - BOLOGNA TO SWISS BORDER -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">08</span>
+        <div class="day-info">
+            <div class="day-date">Thursday, April 9</div>
+            <h2 class="day-title">Bologna to Swiss Border Area</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~3-4 hours</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">TBD</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~300-350 km</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Potential En Route Stops</h3>
+        <ul>
+            <li><strong>Lake Como area</strong> - Bellagio, Varenna, Como &mdash; stunning lakeside scenery</li>
+            <li><strong>Bergamo</strong> - Beautiful upper town (Citt&agrave; Alta) with Venetian walls</li>
+            <li><strong>Lake Maggiore</strong> - Scenic lakeside setting</li>
+        </ul>
+    </div>
+
+    <div style="border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px;">
+        <div class="day-header" style="overflow: auto; margin-top: 0;">
+            <span class="day-number-large">09</span>
+            <div class="day-info">
+                <div class="day-date">Friday, April 10</div>
+                <h2 class="day-title">Switzerland</h2>
+            </div>
+        </div>
+
+        <div class="day-meta">
+            <div class="meta-item">
+                <span class="meta-label">Drive</span>
+                <span class="meta-value">Variable</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Overnight</span>
+                <span class="meta-value">TBD</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-title">Potential Locations</h3>
+            <ul>
+                <li><strong>Lucerne</strong> - Beautiful lakeside city with Chapel Bridge</li>
+                <li><strong>Interlaken</strong> - Dramatic mountain scenery between two lakes</li>
+                <li><strong>Bern</strong> - Swiss capital with medieval old town</li>
+                <li><strong>Lausanne / Montreux</strong> - Lake Geneva area</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>Note</h4>
+            <p>Swiss motorway vignette required (CHF 40). Consider scenic routes through the Alps. Switzerland is expensive - budget accordingly.</p>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 11</span>
+    </div>
+</div>
+
+<!-- PAGE 12: DAY 10 - RETURN -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <div class="day-header" style="overflow: auto;">
+        <span class="day-number-large">10</span>
+        <div class="day-info">
+            <div class="day-date">Saturday, April 11</div>
+            <h2 class="day-title">Switzerland to Brussels</h2>
+        </div>
+    </div>
+
+    <div class="day-meta">
+        <div class="meta-item">
+            <span class="meta-label">Drive</span>
+            <span class="meta-value">~6-7 hours</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Overnight</span>
+            <span class="meta-value">Brussels</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Distance</span>
+            <span class="meta-value">~600-700 km</span>
+        </div>
+    </div>
+
+    <div class="info-box" style="background: #fff3cd; border-left: 4px solid #c9a961;">
+        <h4>Long Driving Day</h4>
+        <p>Long driving day - recommend early start. Share driving if possible. Plan fuel stops and rest breaks in advance.</p>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Potential Stop Options</h3>
+        <ul>
+            <li><strong>Luxembourg City</strong> - Compact, easy to explore on a stopover</li>
+            <li><strong>Reims</strong> - Champagne region, cathedral, quick visit possible</li>
+            <li><strong>Strasbourg</strong> - If taking the eastern route</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Essential Planning Notes</h3>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Documents:</p>
+        <ul>
+            <li>Valid passport/ID for all travelers</li>
+            <li>Vehicle registration and insurance (check Italy/Switzerland coverage)</li>
+            <li>European Health Insurance Cards</li>
+            <li>Travel insurance</li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Driving & Tolls:</p>
+        <ul>
+            <li>French autoroutes: Pay tolls (card accepted)</li>
+            <li>Italy: Toll highways (card or cash)</li>
+            <li>Tunnel tolls: ~&euro;50-70 one-way</li>
+            <li>Switzerland: Vignette CHF 40 required</li>
+        </ul>
+
+        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Weather & Packing:</p>
+        <ul>
+            <li>Expected temps: 10-18&deg;C (50-64&deg;F)</li>
+            <li>Pack layers - temperature varies throughout day</li>
+            <li>Waterproof jackets recommended</li>
+            <li>Comfortable walking shoes essential</li>
+        </ul>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 12</span>
+    </div>
+</div>
+
+<!-- PAGE 13: ESSENTIAL INFORMATION -->
+<div class="page">
+    <div class="header">
+        <div class="header-left">
+            <span class="agency">Wold Johansen</span> <span class="travel">Travel Agency</span>
+        </div>
+        <div class="header-right">
+            Belgium, France, Italy & Switzerland
+        </div>
+    </div>
+
+    <h2 class="page-title">Essential Information</h2>
+
+    <div class="content-section">
+        <h3 class="section-title">Booking Status</h3>
+        <ul>
+            <li>&#10003; Day 1 (Apr 2): Ch&acirc;teau de Longecourt en Plaine &mdash; <strong>BOOKED</strong></li>
+            <li>Day 2 (Apr 3): Lyon &mdash; <strong>TO BE CONFIRMED</strong></li>
+            <li>Day 3 (Apr 4): Turin/Piacenza area &mdash; <strong>TO BE DECIDED & BOOKED</strong></li>
+            <li>Days 4-7 (Apr 5-8): Bologna (3 nights) &mdash; <strong>TO BE BOOKED</strong></li>
+            <li>Day 8 (Apr 9): En route to Switzerland &mdash; <strong>TO BE DECIDED & BOOKED</strong></li>
+            <li>Day 9 (Apr 10): Switzerland &mdash; <strong>TO BE DECIDED & BOOKED</strong></li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Budget Estimate (Family of 4)</h3>
+
+        <table style="margin-top: 15px;">
+            <tr>
+                <td style="font-weight: bold;">Accommodation (9 nights)</td>
+                <td style="text-align: right;">&euro;1,000 - &euro;1,500</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Fuel (~2,800 km)</td>
+                <td style="text-align: right;">&euro;350 - &euro;450</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Tolls & Tunnels</td>
+                <td style="text-align: right;">&euro;200 - &euro;300</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Swiss Motorway Vignette</td>
+                <td style="text-align: right;">CHF 40</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Meals & Dining (10 days)</td>
+                <td style="text-align: right;">&euro;1,000 - &euro;1,500</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Activities, Parking & Train Tickets</td>
+                <td style="text-align: right;">&euro;250 - &euro;400</td>
+            </tr>
+            <tr style="border-top: 2px solid #c9a961;">
+                <td style="font-weight: bold; padding-top: 10px;">Total Estimate</td>
+                <td style="text-align: right; font-weight: bold; color: #c9a961; padding-top: 10px;">&euro;2,850 - &euro;4,200</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content-section">
+        <h3 class="section-title">Emergency Contacts</h3>
+
+        <table style="margin-top: 15px; font-size: 12px;">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Emergency</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EU-wide</td>
+                    <td>112</td>
+                    <td>Works in all EU countries</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>112 or 17 (police)</td>
+                    <td>Ambulance: 15</td>
+                </tr>
+                <tr>
+                    <td>Italy</td>
+                    <td>112 or 113</td>
+                    <td>Carabinieri: 112</td>
+                </tr>
+                <tr>
+                    <td>Switzerland</td>
+                    <td>112 or 117 (police)</td>
+                    <td>Ambulance: 144</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center; padding: 30px; background: #f8f8f8; border-radius: 4px;">
+        <p style="font-size: 18px; color: #1a1a1a; margin-bottom: 10px;">Have a wonderful journey!</p>
+        <p style="font-size: 13px; color: #888;">This itinerary was crafted with care by Wold Johansen Travel Agency</p>
+    </div>
+
+    <div class="page-footer">
+        <span>Wold Johansen Travel Agency</span>
+        <span>Page 13</span>
+    </div>
+</div>
+
+</body>
+</html>
