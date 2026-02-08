@@ -51,16 +51,21 @@ Return: Brussels, Belgium
 - Dinner at the hotel
 - Explore the château grounds
 
+#### Accommodation Details
+- **Address:** 2A Rue du Château, 21110 Longecourt-en-Plaine, France
+
 ---
 
 ### Day 2: April 3 - Dijon to Lyon
-**Driving Distance:** ~200 km (~2 hours)  
-**Accommodation:** Novotel Lyon Gerland Musée des Confluences
+**Driving Distance:** ~200 km (~2 hours)
+**Accommodation:** Hôtel Maison Lacassagne ✓ BOOKED
 
 #### Morning Stop: Dijon
-**Location:** 15 km from Château de Longecourt  
-**Timing:** 2-3 hours (9:00-11:30 AM)  
+**Location:** 15 km from Château de Longecourt
+**Timing:** 2-3 hours (9:00-11:30 AM)
 **Parking:** Park at Darcy parking (underground, central location)
+
+![Dijon](images/dijon_day2.png)
 
 **Top 5 Things to See:**
 
@@ -108,32 +113,16 @@ Return: Brussels, Belgium
 - Parc de la Tête d'Or
 - Lyon Museum of Fine Arts
 
+![Lyon](images/lyon_day2.jpg)
+
 ### Arriving in Lyon for overnight stay
 
-**Hotel:** Novotel Lyon Gerland Musée des Confluences
-- **Address:** 70 Avenue Leclerc, 69007 Lyon
-- **Tel:** +33 4 72 71 11 11
-- **Website:** all.accor.com
-- **Rating:** 4-star
+**Hotel:** Hôtel Maison Lacassagne ✓ BOOKED
+- **Address:** 245-247 Avenue Lacassagne, 69003 Lyon, France
+- **Website:** https://hotel-maisonlacassagne.fr/en/
+- **Booking:** Confirmed
 
-**Why this hotel:**
-- Easy access from highway (A7), practical for stopover
-- Family rooms with sofa bed (kids under 16 free in parents' room)
-- On-site restaurant (La Fabrik) with kids' menu
-- Game room and kids' corner
-- **Parking:** Free outdoor or €15/night covered
-- Tram T1 nearby for easy city center access (6 min to shopping center)
-- Near Musée des Confluences
-
-**Notes:**
-- Pool is outdoor/seasonal - CLOSED in April
-- Good location for evening walk along Rhône River
-- 10-15 min drive to old town if dining out
-- Check-in typically from 14:00
-
-**Estimated cost:** €110-140/night for family room
-
-**Booking status:** To be confirmed
+![Hôtel Maison Lacassagne](images/overnightstay_day2.png)
 
 #### Restaurants
 - *To be researched - Lyon is gastronomic capital of France*
@@ -278,7 +267,7 @@ Return: Brussels, Belgium
 
 ### Accommodation
 - [x] April 2: Château de Longecourt en Plaine
-- [ ] April 3: Lyon
+- [x] April 3: Lyon (Hôtel Maison Lacassagne)
 - [ ] April 4: Turin/Piacenza area
 - [ ] April 5-7: Bologna (3 nights)
 - [ ] April 8: En route to Switzerland (if stopping)
