@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:hotel-maisonlacassagne.fr)"
+      "WebFetch(domain:hotel-maisonlacassagne.fr)",
+      "WebFetch(domain:www.villasalzea.it)"
     ]
   }
 }

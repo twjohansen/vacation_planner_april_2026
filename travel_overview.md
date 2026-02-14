@@ -134,24 +134,26 @@ Return: Brussels, Belgium
 
 ---
 
-### Day 3: April 4 - Lyon to Northern Italy (Turin-Piacenza area)
-**Driving Distance:** ~400-450 km (~4-5 hours depending on final destination)  
-**Accommodation:** TBD
+### Day 3: April 4 - Lyon to Trofarello (near Turin)
+**Driving Distance:** ~400 km (~4 hours via Fréjus tunnel)
+**Accommodation:** Park Hotel Villa Salzea ✓ BOOKED
 
-#### Potential Stops
-- **Turin** - elegant city with Egyptian museum, Mole Antonelliana
-- **Parma** - famous for prosciutto and Parmigiano-Reggiano
-- **Piacenza** - historic city, quieter option
+#### Accommodation Details
+- **Hotel:** Park Hotel Villa Salzea
+- **Address:** Via Duca Degli Abruzzi 29, Trofarello, Italy
+- **Website:** http://www.villasalzea.it/
+- **Description:** 3-star hotel in a restored 18th-century aristocratic villa, set in a large park with a centuries-old beech tree. Formerly the residence of Count Negri.
+- **Amenities:** Restaurant, swimming pool (summer), free WiFi, free private parking, garden views, air-conditioning
+- **Location:** Trofarello, less than 10 km from Turin center
 
-#### Activities
-- *To be determined based on chosen stop*
-
-#### Restaurants
-- *To be researched*
+#### Potential Activities
+- Settle in and explore the villa grounds and park
+- Dinner at the hotel restaurant
+- Optional evening drive into Turin (~15 min) for a stroll
 
 #### Notes
-- Need to decide on specific location
 - Consider Mont Blanc tunnel route vs. Fréjus tunnel
+- Trofarello is ideally positioned for an easy drive to Bologna the next day (~300 km)
 
 ---
 
@@ -268,7 +270,7 @@ Return: Brussels, Belgium
 ### Accommodation
 - [x] April 2: Château de Longecourt en Plaine
 - [x] April 3: Lyon (Hôtel Maison Lacassagne)
-- [ ] April 4: Turin/Piacenza area
+- [x] April 4: Trofarello (Park Hotel Villa Salzea)
 - [ ] April 5-7: Bologna (3 nights)
 - [ ] April 8: En route to Switzerland (if stopping)
 - [ ] April 9: Switzerland
