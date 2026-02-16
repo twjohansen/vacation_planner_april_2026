@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #333;
+    line-height: 1.6;
+    background: white;
+}
+
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+    page-break-after: always;
+}
+
+.page:last-child {
+    page-break-after: auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.header-left {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-left .agency {
+    color: #333;
+}
+
+.header-left .travel {
+    color: #c9a961;
+}
+
+.header-right {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.trip-title-page {
+    text-align: right;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Cover Page */
+.hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 40px 0;
+}
+
+.trip-type {
+    text-align: center;
+    color: #c9a961;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 60px 0 20px 0;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 20px 0 30px 0;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.trip-dates {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.trip-route {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.8;
+}
+
+/* Prepared For Page */
+.prepared-for {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.prepared-for__subtitle {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.prepared-for__title {
+    font-size: 36px;
+    color: #1a1a1a;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th {
+    background: #f8f8f8;
+    padding: 12px;
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+tr:hover {
+    background: #fafafa;
+}
+
+.col-day { width: 50px; }
+.col-date { width: 80px; }
+.col-drive { width: 80px; }
+.col-overnight { width: 130px; }
+
+.day-number {
+    color: #c9a961;
+    font-weight: bold;
+}
+
+/* Summary Box */
+.summary-box {
+    background: #f8f8f8;
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 4px;
+}
+
+.summary-box h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stat {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 24px;
+    color: #c9a961;
+    font-weight: bold;
+}
+
+/* Route Map */
+#route-map {
+    width: 100%;
+    height: 680px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Day Details */
+.day-header {
+    margin: 40px 0 20px 0;
+    overflow: auto;
+}
+
+.day-header--flush {
+    margin-top: 0;
+}
+
+.day-number-large {
+    font-size: 64px;
+    color: #c9a961;
+    font-weight: bold;
+    float: left;
+    margin-right: 20px;
+    line-height: 0.8;
+}
+
+.day-info {
+    padding-top: 10px;
+}
+
+.day-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.day-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1a1a1a;
+    clear: none;
+}
+
+.day-meta {
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.meta-item {
+    font-size: 12px;
+}
+
+.meta-label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c9a961;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.meta-value {
+    color: #666;
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.image-grid .main-image {
+    grid-row: span 2;
+    height: 415px;
+}
+
+/* Content Sections */
+.content-section {
+    margin: 25px 0;
+}
+
+.content-section--flush {
+    margin-top: 0;
+}
+
+.section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c9a961;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.content-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-section li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.content-section li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #c9a961;
+    font-size: 16px;
+}
+
+/* Detail text (replaces inline font-size: 13px paragraphs) */
+.detail-text {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.detail-text--spaced {
+    margin-bottom: 15px;
+}
+
+.sub-heading {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 15px 0 8px 0;
+}
+
+/* List modifiers */
+.list--flush {
+    margin-bottom: 0;
+}
+
+.list--spaced {
+    margin-top: 15px;
+}
+
+/* Info Box */
+.info-box {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.info-box h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c9a961;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.info-box--success {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.info-box--warning {
+    background: #fff3cd;
+    border-left: 4px solid #c9a961;
+}
+
+/* Day Divider (for combined day pages) */
+.day-divider {
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+/* Budget Table */
+.budget-table {
+    margin-top: 15px;
+}
+
+.budget-table td:first-child {
+    font-weight: bold;
+}
+
+.budget-table td:last-child {
+    text-align: right;
+}
+
+.budget-table .budget-total {
+    border-top: 2px solid #c9a961;
+}
+
+.budget-table .budget-total td {
+    padding-top: 10px;
+}
+
+.budget-table .budget-total td:last-child {
+    color: #c9a961;
+}
+
+/* Emergency Table */
+.emergency-table {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+/* Closing Message */
+.closing-message {
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    background: #f8f8f8;
+    border-radius: 4px;
+}
+
+.closing-message__title {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.closing-message__subtitle {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Footer */
+.page-footer {
+    position: absolute;
+    bottom: 20mm;
+    left: 20mm;
+    right: 20mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #999;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+@media print {
+    .page {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+}

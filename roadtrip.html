@@ -5,356 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>European Road Trip - Wold Johansen Travel Agency</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            color: #333;
-            line-height: 1.6;
-            background: white;
-        }
-
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 20mm;
-            margin: 0 auto;
-            background: white;
-            position: relative;
-            page-break-after: always;
-        }
-
-        .page:last-child {
-            page-break-after: auto;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 30px;
-        }
-
-        .header-left {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .header-left .agency {
-            color: #333;
-        }
-
-        .header-left .travel {
-            color: #c9a961;
-        }
-
-        .header-right {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #666;
-        }
-
-        .trip-title-page {
-            text-align: right;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #666;
-            margin-top: 20px;
-        }
-
-        /* Cover Page */
-        .hero-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 40px 0;
-        }
-
-        .trip-type {
-            text-align: center;
-            color: #c9a961;
-            font-size: 14px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin: 60px 0 20px 0;
-        }
-
-        .main-title {
-            text-align: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin: 20px 0 30px 0;
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-
-        .trip-dates {
-            text-align: center;
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .trip-route {
-            text-align: center;
-            font-size: 13px;
-            color: #888;
-            line-height: 1.8;
-        }
-
-        /* Page Title */
-        .page-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-        }
-
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th {
-            background: #f8f8f8;
-            padding: 12px;
-            text-align: left;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-        }
-
-        td {
-            padding: 15px 12px;
-            border-bottom: 1px solid #eee;
-            font-size: 13px;
-        }
-
-        tr:hover {
-            background: #fafafa;
-        }
-
-        .day-number {
-            color: #c9a961;
-            font-weight: bold;
-        }
-
-        /* Summary Box */
-        .summary-box {
-            background: #f8f8f8;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
-
-        .summary-box h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .summary-stats {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .stat {
-            flex: 1;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            color: #c9a961;
-            font-weight: bold;
-        }
-
-        /* Day Details */
-        .day-header {
-            margin: 40px 0 20px 0;
-        }
-
-        .day-number-large {
-            font-size: 64px;
-            color: #c9a961;
-            font-weight: bold;
-            float: left;
-            margin-right: 20px;
-            line-height: 0.8;
-        }
-
-        .day-info {
-            padding-top: 10px;
-        }
-
-        .day-date {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #888;
-            margin-bottom: 8px;
-        }
-
-        .day-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1a1a1a;
-            clear: none;
-        }
-
-        .day-meta {
-            display: flex;
-            gap: 30px;
-            margin: 20px 0;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .meta-item {
-            font-size: 12px;
-        }
-
-        .meta-label {
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #c9a961;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .meta-value {
-            color: #666;
-        }
-
-        /* Image Grid */
-        .image-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .image-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .image-grid .main-image {
-            grid-row: span 2;
-            height: 415px;
-        }
-
-        /* Content Sections */
-        .content-section {
-            margin: 25px 0;
-        }
-
-        .section-title {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c9a961;
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        .content-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .content-section li {
-            padding: 8px 0 8px 20px;
-            position: relative;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .content-section li:before {
-            content: "\2022";
-            position: absolute;
-            left: 0;
-            color: #c9a961;
-            font-size: 16px;
-        }
-
-        /* Info Box */
-        .info-box {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 4px;
-            margin: 20px 0;
-        }
-
-        .info-box h4 {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #c9a961;
-            margin-bottom: 10px;
-        }
-
-        .info-box p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        /* Footer */
-        .page-footer {
-            position: absolute;
-            bottom: 20mm;
-            left: 20mm;
-            right: 20mm;
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #999;
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 20px 0;
-        }
-
-        @media print {
-            .page {
-                margin: 0;
-                border: none;
-                box-shadow: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -391,9 +42,9 @@
         </div>
     </div>
 
-    <div style="text-align: center; padding: 100px 0;">
-        <p style="font-size: 16px; color: #888; margin-bottom: 10px;">Prepared exclusively for</p>
-        <h2 style="font-size: 36px; color: #1a1a1a;">the Wold Johansen Family</h2>
+    <div class="prepared-for">
+        <p class="prepared-for__subtitle">Prepared exclusively for</p>
+        <h2 class="prepared-for__title">the Wold Johansen Family</h2>
     </div>
 </div>
 
@@ -413,11 +64,11 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 50px;">DAY</th>
-                <th style="width: 80px;">DATE</th>
+                <th class="col-day">DAY</th>
+                <th class="col-date">DATE</th>
                 <th>ROUTE</th>
-                <th style="width: 80px;">DRIVE</th>
-                <th style="width: 130px;">OVERNIGHT</th>
+                <th class="col-drive">DRIVE</th>
+                <th class="col-overnight">OVERNIGHT</th>
             </tr>
         </thead>
         <tbody>
@@ -530,7 +181,7 @@
     </div>
 
     <h2 class="page-title">Route Overview</h2>
-    <div id="route-map" style="width: 100%; height: 680px; border-radius: 4px; border: 1px solid #ddd;"></div>
+    <div id="route-map"></div>
 
     <div class="page-footer">
         <span>Wold Johansen Travel Agency</span>
@@ -549,7 +200,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">01</span>
         <div class="day-info">
             <div class="day-date">Thursday, April 2</div>
@@ -579,11 +230,11 @@
 
     <div class="content-section">
         <h3 class="section-title">Lunch Stop: Ch&acirc;lons-en-Champagne</h3>
-        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Location:</strong> ~3 hours from Brussels (via A4), just off A26/A4 motorway</p>
-        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Timing:</strong> Arrive around 12:00-12:30 for lunch</p>
-        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Parking:</strong> Free/easy parking near city center (Rue de Marne or near Notre-Dame-en-Vaux church)</p>
+        <p class="detail-text"><strong>Location:</strong> ~3 hours from Brussels (via A4), just off A26/A4 motorway</p>
+        <p class="detail-text"><strong>Timing:</strong> Arrive around 12:00-12:30 for lunch</p>
+        <p class="detail-text"><strong>Parking:</strong> Free/easy parking near city center (Rue de Marne or near Notre-Dame-en-Vaux church)</p>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0;"><strong>Restaurant Options:</strong></p>
+        <p class="sub-heading">Restaurant Options:</p>
         <ul>
             <li><strong>La Brasserie du Jard</strong> (Recommended for families)<br>
                 10 Boulevard Victor Hugo, 51000 Ch&acirc;lons-en-Champagne<br>
@@ -597,8 +248,8 @@
                 Various options in pedestrian area around Place de la R&eacute;publique</li>
         </ul>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0;"><strong>After Lunch:</strong></p>
-        <ul style="margin-bottom: 0;">
+        <p class="sub-heading">After Lunch:</p>
+        <ul class="list--flush">
             <li>Let kids stretch legs walking around canals (15-20 min)</li>
             <li>"Little Venice" atmosphere</li>
             <li>Back on road for final ~2 hours to Ch&acirc;teau de Longecourt</li>
@@ -607,14 +258,14 @@
 
     <div class="content-section">
         <h3 class="section-title">Accommodation: Ch&acirc;teau de Longecourt en Plaine</h3>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Address:</strong> 2A Rue du Ch&acirc;teau, 21110 Longecourt-en-Plaine, France</p>
-        <ul style="margin-top: 15px;">
+        <p class="detail-text"><strong>Address:</strong> 2A Rue du Ch&acirc;teau, 21110 Longecourt-en-Plaine, France</p>
+        <ul class="list--spaced">
             <li>Dinner at the hotel</li>
             <li>Explore the ch&acirc;teau grounds</li>
         </ul>
     </div>
 
-    <div class="info-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+    <div class="info-box info-box--success">
         <h4>Booking Status</h4>
         <p>Ch&acirc;teau de Longecourt en Plaine &mdash; <strong>BOOKED</strong></p>
     </div>
@@ -636,7 +287,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">02</span>
         <div class="day-info">
             <div class="day-date">Friday, April 3</div>
@@ -665,13 +316,13 @@
         <img src="images/lyon_day2.jpg" alt="Lyon activities">
     </div>
 
-    <div class="content-section" style="margin-top: 0;">
+    <div class="content-section content-section--flush">
         <h3 class="section-title">Morning Stop: Dijon</h3>
-        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Location:</strong> 15 km from Ch&acirc;teau de Longecourt</p>
-        <p style="font-size: 13px; margin-bottom: 10px;"><strong>Timing:</strong> 2-3 hours (9:00-11:30 AM)</p>
-        <p style="font-size: 13px; margin-bottom: 15px;"><strong>Parking:</strong> Darcy parking (underground, central location)</p>
+        <p class="detail-text"><strong>Location:</strong> 15 km from Ch&acirc;teau de Longecourt</p>
+        <p class="detail-text"><strong>Timing:</strong> 2-3 hours (9:00-11:30 AM)</p>
+        <p class="detail-text detail-text--spaced"><strong>Parking:</strong> Darcy parking (underground, central location)</p>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Top 5 Things to See:</p>
+        <p class="sub-heading">Top 5 Things to See:</p>
         <ul>
             <li><strong>Ducal Palace (Palais des Ducs)</strong> - Place de la Lib&eacute;ration, stunning semicircular square<br>
                 Climb Tour Philippe le Bon (316 steps) for panoramic views | FREE entry<br>
@@ -711,12 +362,12 @@
 
     <div class="content-section">
         <h3 class="section-title">Accommodation: Lyon</h3>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Hotel:</strong> H&ocirc;tel Maison Lacassagne</p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Address:</strong> 245-247 Avenue Lacassagne, 69003 Lyon, France</p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Website:</strong> <a href="https://hotel-maisonlacassagne.fr/en/" target="_blank">hotel-maisonlacassagne.fr</a></p>
+        <p class="detail-text"><strong>Hotel:</strong> H&ocirc;tel Maison Lacassagne</p>
+        <p class="detail-text"><strong>Address:</strong> 245-247 Avenue Lacassagne, 69003 Lyon, France</p>
+        <p class="detail-text"><strong>Website:</strong> <a href="https://hotel-maisonlacassagne.fr/en/" target="_blank">hotel-maisonlacassagne.fr</a></p>
     </div>
 
-    <div class="info-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+    <div class="info-box info-box--success">
         <h4>Booking Status</h4>
         <p>H&ocirc;tel Maison Lacassagne &mdash; <strong>BOOKED</strong></p>
     </div>
@@ -735,7 +386,7 @@
 
     <div class="content-section">
         <h3 class="section-title">Dining</h3>
-        <p style="font-size: 13px; margin-bottom: 12px;"><em>Lyon is considered the gastronomic capital of France. Consider a bouchon lyonnais (traditional restaurant).</em></p>
+        <p class="detail-text"><em>Lyon is considered the gastronomic capital of France. Consider a bouchon lyonnais (traditional restaurant).</em></p>
     </div>
 
     <div class="info-box">
@@ -760,7 +411,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">03</span>
         <div class="day-info">
             <div class="day-date">Saturday, April 4</div>
@@ -791,12 +442,12 @@
 
     <div class="content-section">
         <h3 class="section-title">Accommodation: Park Hotel Villa Salzea</h3>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Address:</strong> Via Duca Degli Abruzzi 29, Trofarello, Italy</p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Website:</strong> <a href="http://www.villasalzea.it/" target="_blank">villasalzea.it</a></p>
-        <p style="font-size: 13px; margin-bottom: 15px;"><strong>Location:</strong> Trofarello, less than 10 km from Turin center</p>
-        <p style="font-size: 13px; margin-bottom: 15px;">A charming 3-star hotel housed in a restored 18th-century aristocratic villa, formerly the residence of Count Negri. Set in a large, exquisite park featuring a centuries-old beech tree.</p>
+        <p class="detail-text"><strong>Address:</strong> Via Duca Degli Abruzzi 29, Trofarello, Italy</p>
+        <p class="detail-text"><strong>Website:</strong> <a href="http://www.villasalzea.it/" target="_blank">villasalzea.it</a></p>
+        <p class="detail-text detail-text--spaced"><strong>Location:</strong> Trofarello, less than 10 km from Turin center</p>
+        <p class="detail-text detail-text--spaced">A charming 3-star hotel housed in a restored 18th-century aristocratic villa, formerly the residence of Count Negri. Set in a large, exquisite park featuring a centuries-old beech tree.</p>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Amenities:</p>
+        <p class="sub-heading">Amenities:</p>
         <ul>
             <li><strong>Restaurant</strong> on-site &mdash; dinner available</li>
             <li><strong>Swimming pool</strong> (seasonal/summer)</li>
@@ -815,7 +466,7 @@
         </ul>
     </div>
 
-    <div class="info-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+    <div class="info-box info-box--success">
         <h4>Booking Status</h4>
         <p>Park Hotel Villa Salzea &mdash; <strong>BOOKED</strong></p>
     </div>
@@ -842,7 +493,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">04</span>
         <div class="day-info">
             <div class="day-date">Sunday, April 5</div>
@@ -894,7 +545,7 @@
             <li><strong>Gelato:</strong> Cremeria Funivia or Stefino</li>
         </ul>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Must Try:</p>
+        <p class="sub-heading">Must Try:</p>
         <ul>
             <li>Tagliatelle al rag&ugrave; (authentic Bolognese sauce)</li>
             <li>Tortellini in brodo</li>
@@ -905,11 +556,11 @@
 
     <div class="content-section">
         <h3 class="section-title">Accommodation: Corte del Sant'Orsola</h3>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Address:</strong> Via Giuseppe Massarenti, 4, 40138 Bologna, Italy</p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Website:</strong> <a href="https://www.lacortedelsantorsola.com/en/" target="_blank">lacortedelsantorsola.com</a></p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Phone:</strong> +39 375 648 3969</p>
-        <p style="font-size: 13px; margin-bottom: 8px;"><strong>Check-in:</strong> April 5 &nbsp;|&nbsp; <strong>Check-out:</strong> April 8 (3 nights)</p>
-        <p style="font-size: 13px; margin-bottom: 15px;">Centrally located guest house near the University Centre, approximately 15 minutes' walk from the Two Towers and Piazza Maggiore.</p>
+        <p class="detail-text"><strong>Address:</strong> Via Giuseppe Massarenti, 4, 40138 Bologna, Italy</p>
+        <p class="detail-text"><strong>Website:</strong> <a href="https://www.lacortedelsantorsola.com/en/" target="_blank">lacortedelsantorsola.com</a></p>
+        <p class="detail-text"><strong>Phone:</strong> +39 375 648 3969</p>
+        <p class="detail-text"><strong>Check-in:</strong> April 5 &nbsp;|&nbsp; <strong>Check-out:</strong> April 8 (3 nights)</p>
+        <p class="detail-text detail-text--spaced">Centrally located guest house near the University Centre, approximately 15 minutes' walk from the Two Towers and Piazza Maggiore.</p>
         <ul>
             <li><strong>Parking</strong> available</li>
             <li><strong>Free Wi-Fi</strong>, air conditioning, private bathrooms</li>
@@ -917,7 +568,7 @@
         </ul>
     </div>
 
-    <div class="info-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+    <div class="info-box info-box--success">
         <h4>Booking Status</h4>
         <p>Corte del Sant'Orsola &mdash; <strong>BOOKED</strong> (Apr 5&ndash;8, 3 nights)</p>
     </div>
@@ -944,7 +595,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">05</span>
         <div class="day-info">
             <div class="day-date">Monday, April 6</div>
@@ -974,7 +625,7 @@
         </ul>
     </div>
 
-    <div class="info-box" style="background: #fff3cd; border-left: 4px solid #c9a961;">
+    <div class="info-box info-box--warning">
         <h4>Important</h4>
         <p>Book Venice train tickets in advance for best prices. Trains run frequently from Bologna Centrale. Allow a full day for exploring Venice.</p>
     </div>
@@ -996,7 +647,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">06</span>
         <div class="day-info">
             <div class="day-date">Tuesday, April 7</div>
@@ -1017,7 +668,7 @@
 
     <div class="content-section">
         <h3 class="section-title">Activities in Ravenna</h3>
-        <p style="font-size: 13px; margin-bottom: 12px;"><em>Famous for its stunning Byzantine mosaics (UNESCO World Heritage sites)</em></p>
+        <p class="detail-text"><em>Famous for its stunning Byzantine mosaics (UNESCO World Heritage sites)</em></p>
         <ul>
             <li><strong>Basilica di San Vitale</strong> - 6th-century church with breathtaking mosaics</li>
             <li><strong>Mausoleum of Galla Placidia</strong> - Starry sky ceiling mosaics</li>
@@ -1027,8 +678,8 @@
         </ul>
     </div>
 
-    <div style="border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px;">
-        <div class="day-header" style="overflow: auto; margin-top: 0;">
+    <div class="day-divider">
+        <div class="day-header day-header--flush">
             <span class="day-number-large">07</span>
             <div class="day-info">
                 <div class="day-date">Wednesday, April 8</div>
@@ -1064,7 +715,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">08</span>
         <div class="day-info">
             <div class="day-date">Thursday, April 9</div>
@@ -1096,8 +747,8 @@
         </ul>
     </div>
 
-    <div style="border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px;">
-        <div class="day-header" style="overflow: auto; margin-top: 0;">
+    <div class="day-divider">
+        <div class="day-header day-header--flush">
             <span class="day-number-large">09</span>
             <div class="day-info">
                 <div class="day-date">Friday, April 10</div>
@@ -1149,7 +800,7 @@
         </div>
     </div>
 
-    <div class="day-header" style="overflow: auto;">
+    <div class="day-header">
         <span class="day-number-large">10</span>
         <div class="day-info">
             <div class="day-date">Saturday, April 11</div>
@@ -1172,7 +823,7 @@
         </div>
     </div>
 
-    <div class="info-box" style="background: #fff3cd; border-left: 4px solid #c9a961;">
+    <div class="info-box info-box--warning">
         <h4>Long Driving Day</h4>
         <p>Long driving day - recommend early start. Share driving if possible. Plan fuel stops and rest breaks in advance.</p>
     </div>
@@ -1189,7 +840,7 @@
     <div class="content-section">
         <h3 class="section-title">Essential Planning Notes</h3>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Documents:</p>
+        <p class="sub-heading">Documents:</p>
         <ul>
             <li>Valid passport/ID for all travelers</li>
             <li>Vehicle registration and insurance (check Italy/Switzerland coverage)</li>
@@ -1197,7 +848,7 @@
             <li>Travel insurance</li>
         </ul>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Driving & Tolls:</p>
+        <p class="sub-heading">Driving & Tolls:</p>
         <ul>
             <li>French autoroutes: Pay tolls (card accepted)</li>
             <li>Italy: Toll highways (card or cash)</li>
@@ -1205,7 +856,7 @@
             <li>Switzerland: Vignette CHF 40 required</li>
         </ul>
 
-        <p style="font-size: 13px; margin: 15px 0 8px 0; font-weight: bold;">Weather & Packing:</p>
+        <p class="sub-heading">Weather & Packing:</p>
         <ul>
             <li>Expected temps: 10-18&deg;C (50-64&deg;F)</li>
             <li>Pack layers - temperature varies throughout day</li>
@@ -1248,34 +899,34 @@
     <div class="content-section">
         <h3 class="section-title">Budget Estimate (Family of 4)</h3>
 
-        <table style="margin-top: 15px;">
+        <table class="budget-table">
             <tr>
-                <td style="font-weight: bold;">Accommodation (9 nights)</td>
-                <td style="text-align: right;">&euro;1,000 - &euro;1,500</td>
+                <td>Accommodation (9 nights)</td>
+                <td>&euro;1,000 - &euro;1,500</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">Fuel (~2,800 km)</td>
-                <td style="text-align: right;">&euro;350 - &euro;450</td>
+                <td>Fuel (~2,800 km)</td>
+                <td>&euro;350 - &euro;450</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">Tolls & Tunnels</td>
-                <td style="text-align: right;">&euro;200 - &euro;300</td>
+                <td>Tolls & Tunnels</td>
+                <td>&euro;200 - &euro;300</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">Swiss Motorway Vignette</td>
-                <td style="text-align: right;">CHF 40</td>
+                <td>Swiss Motorway Vignette</td>
+                <td>CHF 40</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">Meals & Dining (10 days)</td>
-                <td style="text-align: right;">&euro;1,000 - &euro;1,500</td>
+                <td>Meals & Dining (10 days)</td>
+                <td>&euro;1,000 - &euro;1,500</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">Activities, Parking & Train Tickets</td>
-                <td style="text-align: right;">&euro;250 - &euro;400</td>
+                <td>Activities, Parking & Train Tickets</td>
+                <td>&euro;250 - &euro;400</td>
             </tr>
-            <tr style="border-top: 2px solid #c9a961;">
-                <td style="font-weight: bold; padding-top: 10px;">Total Estimate</td>
-                <td style="text-align: right; font-weight: bold; color: #c9a961; padding-top: 10px;">&euro;2,850 - &euro;4,200</td>
+            <tr class="budget-total">
+                <td>Total Estimate</td>
+                <td>&euro;2,850 - &euro;4,200</td>
             </tr>
         </table>
     </div>
@@ -1283,7 +934,7 @@
     <div class="content-section">
         <h3 class="section-title">Emergency Contacts</h3>
 
-        <table style="margin-top: 15px; font-size: 12px;">
+        <table class="emergency-table">
             <thead>
                 <tr>
                     <th>Country</th>
@@ -1316,9 +967,9 @@
         </table>
     </div>
 
-    <div style="margin-top: 40px; text-align: center; padding: 30px; background: #f8f8f8; border-radius: 4px;">
-        <p style="font-size: 18px; color: #1a1a1a; margin-bottom: 10px;">Have a wonderful journey!</p>
-        <p style="font-size: 13px; color: #888;">This itinerary was crafted with care by Wold Johansen Travel Agency</p>
+    <div class="closing-message">
+        <p class="closing-message__title">Have a wonderful journey!</p>
+        <p class="closing-message__subtitle">This itinerary was crafted with care by Wold Johansen Travel Agency</p>
     </div>
 
     <div class="page-footer">
@@ -1328,95 +979,6 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-    var map = L.map('route-map', { scrollWheelZoom: false }).setView([47.5, 7.5], 6);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 18
-    }).addTo(map);
-
-    // Main route stops [lat, lng, label, day]
-    var stops = [
-        [50.8503, 4.3517,  'Brussels',                    'Start / End'],
-        [48.9566, 4.3631,  'Châlons-en-Champagne',        'Day 1 lunch'],
-        [47.1847, 5.2342,  'Château de Longecourt',        'Night 1'],
-        [47.3220, 5.0415,  'Dijon',                        'Day 2 morning'],
-        [45.7640, 4.8357,  'Lyon',                         'Night 2'],
-        [44.9847, 7.6408,  'Trofarello (Villa Salzea)',      'Night 3'],
-        [44.4949, 11.3426, 'Bologna',                      'Nights 4–7'],
-        [45.9936, 9.2572,  'Swiss Border Area',            'Night 8'],
-        [47.0502, 8.3093,  'Switzerland (TBD)',             'Night 9']
-    ];
-
-    // Day trips from Bologna
-    var dayTrips = [
-        [45.4408, 12.3155, 'Venice',   'Day 5 – train day trip'],
-        [44.4184, 12.2035, 'Ravenna',  'Day 6 – day trip']
-    ];
-
-    // Custom numbered marker
-    function createMarker(lat, lng, number, label, detail, color) {
-        var icon = L.divIcon({
-            className: '',
-            html: '<div style="background:' + color + ';color:#fff;width:26px;height:26px;' +
-                  'border-radius:50%;display:flex;align-items:center;justify-content:center;' +
-                  'font-size:12px;font-weight:bold;font-family:Georgia,serif;' +
-                  'border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);">' +
-                  number + '</div>',
-            iconSize: [26, 26],
-            iconAnchor: [13, 13]
-        });
-        return L.marker([lat, lng], { icon: icon })
-            .bindPopup('<strong>' + label + '</strong><br><span style="color:#888;font-size:12px;">' + detail + '</span>');
-    }
-
-    // Add main route markers
-    stops.forEach(function(s, i) {
-        createMarker(s[0], s[1], i + 1, s[2], s[3], '#c9a961').addTo(map);
-    });
-
-    // Add day trip markers (diamond style)
-    dayTrips.forEach(function(d) {
-        var icon = L.divIcon({
-            className: '',
-            html: '<div style="background:#6a9ec9;color:#fff;width:22px;height:22px;' +
-                  'border-radius:3px;display:flex;align-items:center;justify-content:center;' +
-                  'font-size:10px;font-weight:bold;font-family:Georgia,serif;' +
-                  'border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);' +
-                  'transform:rotate(45deg);"><span style="transform:rotate(-45deg);">&#9830;</span></div>',
-            iconSize: [22, 22],
-            iconAnchor: [11, 11]
-        });
-        L.marker([d[0], d[1]], { icon: icon })
-            .bindPopup('<strong>' + d[2] + '</strong><br><span style="color:#888;font-size:12px;">' + d[3] + '</span>')
-            .addTo(map);
-    });
-
-    // Main route polyline (including return to Brussels)
-    var routeCoords = stops.map(function(s) { return [s[0], s[1]]; });
-    routeCoords.push([50.8503, 4.3517]); // close the loop back to Brussels
-    L.polyline(routeCoords, {
-        color: '#c9a961',
-        weight: 3,
-        opacity: 0.8,
-        dashArray: '8, 6'
-    }).addTo(map);
-
-    // Day trip lines from Bologna
-    dayTrips.forEach(function(d) {
-        L.polyline([[44.4949, 11.3426], [d[0], d[1]]], {
-            color: '#6a9ec9',
-            weight: 2,
-            opacity: 0.6,
-            dashArray: '4, 6'
-        }).addTo(map);
-    });
-
-    // Fit map to show all points
-    var allPoints = stops.map(function(s) { return [s[0], s[1]]; });
-    dayTrips.forEach(function(d) { allPoints.push([d[0], d[1]]); });
-    map.fitBounds(allPoints, { padding: [30, 30] });
-</script>
+<script src="map.js"></script>
 </body>
 </html>
