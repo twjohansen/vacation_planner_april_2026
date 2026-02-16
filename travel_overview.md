@@ -158,8 +158,19 @@ Return: Brussels, Belgium
 ---
 
 ### Days 4-7: April 5-8 - Bologna (3 nights, 4 days)
-**Driving Distance from Piacenza:** ~150 km (~1.5 hours)  
-**Accommodation:** TBD
+**Driving Distance:** ~320 km (~3-4 hours)
+**Accommodation:** Corte del Sant'Orsola ✓ BOOKED
+
+#### Accommodation Details
+- **Guest House:** Corte del Sant'Orsola
+- **Address:** Via Giuseppe Massarenti, 4, 40138 Bologna, Italy
+- **Website:** https://www.lacortedelsantorsola.com/en/
+- **Phone:** +39 375 648 3969
+- **Email:** info@lacortedelsantorsola.com
+- **Check-in:** April 5 / **Check-out:** April 8
+- **Description:** Centrally located guest house near the University Centre and Policlinico Sant'Orsola, approximately 15 minutes' walk from the Two Towers and Piazza Maggiore.
+- **Amenities:** Air conditioning, private bathrooms, free Wi-Fi, minibar, electric kettle, complimentary toiletries, hairdryer, heated towel rail, desk
+- **Parking:** Available
 
 #### Day 4 (April 5): Bologna Exploration
 **Activities:**
@@ -271,7 +282,7 @@ Return: Brussels, Belgium
 - [x] April 2: Château de Longecourt en Plaine
 - [x] April 3: Lyon (Hôtel Maison Lacassagne)
 - [x] April 4: Trofarello (Park Hotel Villa Salzea)
-- [ ] April 5-7: Bologna (3 nights)
+- [x] April 5-7: Bologna - Corte del Sant'Orsola (3 nights)
 - [ ] April 8: En route to Switzerland (if stopping)
 - [ ] April 9: Switzerland
 - [ ] April 10: Optional final stop or direct to Brussels

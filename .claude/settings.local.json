@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:hotel-maisonlacassagne.fr)",
-      "WebFetch(domain:www.villasalzea.it)"
+      "WebFetch(domain:www.villasalzea.it)",
+      "WebFetch(domain:www.lacortedelsantorsola.com)"
     ]
   }
 }
